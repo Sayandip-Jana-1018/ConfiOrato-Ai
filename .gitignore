@@ -50,9 +50,6 @@ Thumbs.db
 # Temporary files
 *.tmp
 
-# Exclude backend folder
-/src/backend/
-
 # Python virtual environments
 **/myenv/
 **/venv/
