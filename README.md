@@ -1,6 +1,6 @@
-# SpeakEasy - AI-Powered Public Speaking Assistant
+# ConfiOrato-AI - Public Speaking Assistant
 
-SpeakEasy is an advanced public speaking assistant that provides real-time analysis and feedback on your body language, voice, and speech patterns to help you become a more effective presenter.
+ConfiOrato is an advanced public speaking assistant that provides real-time analysis and feedback on your body language, voice, and speech patterns to help you become a more effective presenter.
 
 ## Features
 
@@ -37,11 +37,11 @@ SpeakEasy is an advanced public speaking assistant that provides real-time analy
 ### Installation
 1. Clone the repository
    ```
-   git clone https://github.com/yourusername/speakeasy.git
+   git clone https://github.com/Sayandip-Jana-1018/ConfiOrato-Ai.git
    ```
 2. Navigate to the project directory
    ```
-   cd speakeasy
+   cd ConfiOrato-Ai
    ```
 3. Install dependencies
    ```
