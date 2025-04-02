@@ -61,6 +61,17 @@ ConfiOrato is an advanced public speaking assistant that provides real-time anal
    ```
 5. Open your browser and navigate to `http://localhost:3000`
 
+6. cd src/backend python run_server.py
+
+7. .env.example:
+```
+OPENAI_API_KEY=
+ANTHROPIC_API_KEY=
+GEMINI_API_KEY=
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+```
+
 ## Technologies Used
 - **Frontend**: Next.js, React, TypeScript
 - **Styling**: TailwindCSS, Framer Motion
