@@ -5,8 +5,8 @@ import { SessionResult } from '@/backend/bodyLanguageFeedback';
  */
 export async function startBodyLanguageSession(): Promise<string> {
   try {
-    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL || 'http://localhost:5000';
-    const response = await fetch(`${backendUrl}/api/body-language/start-session`, {
+    // Use our proxy endpoint instead of calling the backend directly
+    const response = await fetch(`/api/proxy/body-language-session`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -33,8 +33,8 @@ export async function analyzeBodyLanguageFrame(
   imageData: string
 ): Promise<{ processedImage: string; prediction: any }> {
   try {
-    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL || 'http://localhost:5000';
-    const response = await fetch(`${backendUrl}/api/body-language/analyze-frame`, {
+    // Use our proxy endpoint instead of calling the backend directly
+    const response = await fetch(`/api/proxy/analyze-frame`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -85,8 +85,8 @@ export async function stopBodyLanguageSession(sessionId: string): Promise<BodyLa
   try {
     console.log(`Stopping body language session with ID: ${sessionId}`);
     
-    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL || 'http://localhost:5000';
-    const response = await fetch(`${backendUrl}/api/body-language/stop-session`, {
+    // Use our proxy endpoint instead of calling the backend directly
+    const response = await fetch(`/api/proxy/stop-session`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
