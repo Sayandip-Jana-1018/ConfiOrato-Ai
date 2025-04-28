@@ -24,7 +24,7 @@ export default function TestConnection() {
   const testDirectConnection = async () => {
     setDirectLoading(true);
     try {
-      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL || 'https://confiorato-ai-backend.onrender.com';
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL || 'https://confiorato-ai.onrender.com';
       console.log(`Attempting direct connection to: ${backendUrl}/api/health`);
       
       const response = await fetch(`${backendUrl}/api/health`, {

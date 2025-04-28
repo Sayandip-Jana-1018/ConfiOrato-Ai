@@ -9,7 +9,7 @@ export default async function handler(
 ) {
   try {
     // Get the backend URL from environment variables
-    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL || 'https://confiorato-ai-backend.onrender.com';
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL || 'https://confiorato-ai.onrender.com';
     
     console.log(`Attempting to connect to backend at: ${backendUrl}`);
     
@@ -45,7 +45,7 @@ export default async function handler(
     return res.status(500).json({ 
       error: 'Failed to connect to backend', 
       message: error instanceof Error ? error.message : String(error),
-      backendUrl: process.env.NEXT_PUBLIC_BACKEND_API_URL || 'https://confiorato-ai-backend.onrender.com',
+      backendUrl: process.env.NEXT_PUBLIC_BACKEND_API_URL || 'https://confiorato-ai.onrender.com',
     });
   }
 }
