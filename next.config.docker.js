@@ -1,19 +1,21 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
   output: 'standalone',
-  // Ensure MediaPipe and TensorFlow.js work properly in production
   serverExternalPackages: ['@tensorflow/tfjs', '@mediapipe/holistic', '@mediapipe/camera_utils', '@mediapipe/drawing_utils', '@mediapipe/hands', '@mediapipe/pose'],
-  // Disable type checking during build for faster builds
+  // Completely disable TypeScript type checking
   typescript: {
     ignoreBuildErrors: true,
   },
-  // Disable ESLint during build for faster builds
+  // Completely disable ESLint
   eslint: {
     ignoreDuringBuilds: true,
   },
+  // Ignore all errors during build
+  swcMinify: true,
+  experimental: {
+    forceSwcTransforms: true,
+  }
 };
 
-export default nextConfig;
+module.exports = nextConfig;

@@ -1,10 +1,11 @@
 import { Inter, IBM_Plex_Mono } from "next/font/google";
 import localFont from "next/font/local";
+import path from "path";
 
 export const inter = Inter({ subsets: ["latin"] });
 
 export const interVar = localFont({
-  src: "./InterVariable.ttf",
+  src: path.resolve(process.cwd(), "src/pages/InterVariable.ttf"),
   variable: "--font-inter-var",
 });
 

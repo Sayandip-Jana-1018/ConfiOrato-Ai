@@ -5,7 +5,8 @@ import { SessionResult } from '@/backend/bodyLanguageFeedback';
  */
 export async function startBodyLanguageSession(): Promise<string> {
   try {
-    const response = await fetch('http://localhost:5000/api/body-language/start-session', {
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL || 'http://localhost:5000';
+    const response = await fetch(`${backendUrl}/api/body-language/start-session`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -32,7 +33,8 @@ export async function analyzeBodyLanguageFrame(
   imageData: string
 ): Promise<{ processedImage: string; prediction: any }> {
   try {
-    const response = await fetch('http://localhost:5000/api/body-language/analyze-frame', {
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL || 'http://localhost:5000';
+    const response = await fetch(`${backendUrl}/api/body-language/analyze-frame`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -83,7 +85,8 @@ export async function stopBodyLanguageSession(sessionId: string): Promise<BodyLa
   try {
     console.log(`Stopping body language session with ID: ${sessionId}`);
     
-    const response = await fetch('http://localhost:5000/api/body-language/stop-session', {
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL || 'http://localhost:5000';
+    const response = await fetch(`${backendUrl}/api/body-language/stop-session`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
