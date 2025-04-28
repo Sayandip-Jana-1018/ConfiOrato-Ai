@@ -15,7 +15,7 @@ export default async function handler(
     }
 
     // Get the backend URL from environment variables
-    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL || 'https://confiorato-ai-backend.onrender.com';
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL || 'https://confiorato-ai.onrender.com';
     
     console.log(`Proxying stop-session request to backend`);
     
