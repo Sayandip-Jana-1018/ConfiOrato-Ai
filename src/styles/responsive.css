@@ -1,0 +1,254 @@
+/* Responsive styles for ConfiOrato-AI */
+
+/* Base mobile styles (small devices) */
+@media (max-width: 640px) {
+  .mobile-hidden {
+    display: none !important;
+  }
+  
+  .mobile-full-width {
+    width: 100% !important;
+  }
+  
+  .mobile-text-center {
+    text-align: center !important;
+  }
+  
+  .mobile-flex-col {
+    flex-direction: column !important;
+  }
+  
+  .mobile-p-4 {
+    padding: 1rem !important;
+  }
+  
+  .mobile-mt-4 {
+    margin-top: 1rem !important;
+  }
+  
+  .mobile-mb-4 {
+    margin-bottom: 1rem !important;
+  }
+  
+  .mobile-text-sm {
+    font-size: 0.875rem !important;
+  }
+  
+  .mobile-h-auto {
+    height: auto !important;
+  }
+  
+  .mobile-order-1 {
+    order: 1 !important;
+  }
+  
+  .mobile-order-2 {
+    order: 2 !important;
+  }
+  
+  .mobile-order-3 {
+    order: 3 !important;
+  }
+}
+
+/* Tablet styles (medium devices) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .tablet-hidden {
+    display: none !important;
+  }
+  
+  .tablet-block {
+    display: block !important;
+  }
+  
+  .tablet-flex-row {
+    flex-direction: row !important;
+  }
+  
+  .tablet-grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  
+  .tablet-p-6 {
+    padding: 1.5rem !important;
+  }
+  
+  .tablet-text-base {
+    font-size: 1rem !important;
+  }
+  
+  .tablet-w-auto {
+    width: auto !important;
+  }
+  
+  .tablet-order-1 {
+    order: 1 !important;
+  }
+  
+  .tablet-order-2 {
+    order: 2 !important;
+  }
+}
+
+/* Desktop styles (large devices) */
+@media (min-width: 1025px) {
+  .desktop-block {
+    display: block !important;
+  }
+  
+  .desktop-grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+  
+  .desktop-p-8 {
+    padding: 2rem !important;
+  }
+  
+  .desktop-text-lg {
+    font-size: 1.125rem !important;
+  }
+  
+  .desktop-order-1 {
+    order: 1 !important;
+  }
+  
+  .desktop-order-2 {
+    order: 2 !important;
+  }
+  
+  .desktop-order-3 {
+    order: 3 !important;
+  }
+}
+
+/* Custom responsive classes for ConfiOrato-AI components */
+.responsive-avatar {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .responsive-avatar {
+    max-width: 200px;
+  }
+}
+
+.responsive-card {
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.responsive-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 641px) {
+  .responsive-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .responsive-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Responsive navigation */
+.responsive-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 640px) {
+  .responsive-nav {
+    bottom: 0;
+    top: auto;
+    height: 60px;
+  }
+}
+
+/* Responsive sidebar */
+.responsive-sidebar {
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 640px) {
+  .responsive-sidebar {
+    transform: translateX(-100%);
+  }
+  
+  .responsive-sidebar.open {
+    transform: translateX(0);
+  }
+}
+
+/* Responsive content area */
+.responsive-content {
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 640px) {
+  .responsive-content {
+    margin-left: 0;
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .responsive-content {
+    margin-left: 80px;
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .responsive-content {
+    margin-left: 280px;
+    padding: 2rem;
+  }
+}
+
+/* Responsive typography */
+.responsive-heading {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+@media (min-width: 641px) {
+  .responsive-heading {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .responsive-heading {
+    font-size: 2.5rem;
+  }
+}
+
+.responsive-text {
+  font-size: 0.875rem;
+}
+
+@media (min-width: 641px) {
+  .responsive-text {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .responsive-text {
+    font-size: 1.125rem;
+  }
+}

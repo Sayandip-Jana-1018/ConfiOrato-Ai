@@ -519,12 +519,12 @@ export default function Analytics() {
     <AppLayout title="Analytics">
       <div className="mt-10 h-full overflow-y-auto space-y-6 pb-8">
         {/* Top metrics cards - equal width and height */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <GlassCard className="p-6 h-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+          <GlassCard className="p-4 md:p-6 h-full">
             <div className="flex justify-between">
               <div>
                 <div className="text-white/60 mb-2">Total Sessions</div>
-                <div className="text-3xl font-bold text-white">{totalSessions}</div>
+                <div className="text-xl md:text-2xl lg:text-3xl font-bold text-white">{totalSessions}</div>
                 <div className="text-white/40 text-sm mt-1">+3 this week</div>
               </div>
               <div className="w-16 h-16">
@@ -536,11 +536,11 @@ export default function Analytics() {
             </div>
           </GlassCard>
 
-          <GlassCard className="p-6 h-full">
+          <GlassCard className="p-4 md:p-6 h-full">
             <div className="flex justify-between">
               <div>
                 <div className="text-white/60 mb-2">Practice Time</div>
-                <div className="text-3xl font-bold text-white">
+                <div className="text-xl md:text-2xl lg:text-3xl font-bold text-white">
                   {totalTime.hours}h {totalTime.minutes}m
                 </div>
                 <div className="text-white/40 text-sm mt-1">+2h this week</div>
@@ -556,11 +556,11 @@ export default function Analytics() {
             </div>
           </GlassCard>
 
-          <GlassCard className="p-6 h-full">
+          <GlassCard className="p-4 md:p-6 h-full">
             <div className="flex justify-between">
               <div>
                 <div className="text-white/60 mb-2">Avg. Session</div>
-                <div className="text-3xl font-bold text-white">{avgSession}min</div>
+                <div className="text-xl md:text-2xl lg:text-3xl font-bold text-white">{avgSession}min</div>
                 <div className="text-white/40 text-sm mt-1">+5min avg</div>
               </div>
               <div className="w-16 h-16">
@@ -572,11 +572,11 @@ export default function Analytics() {
             </div>
           </GlassCard>
 
-          <GlassCard className="p-6 h-full">
+          <GlassCard className="p-4 md:p-6 h-full">
             <div className="flex justify-between">
               <div>
                 <div className="text-white/60 mb-2">Top Skill</div>
-                <div className="text-3xl font-bold text-white">{topSkill.name || 'N/A'}</div>
+                <div className="text-xl md:text-2xl lg:text-3xl font-bold text-white">{topSkill.name || 'N/A'}</div>
                 <div className="text-white/40 text-sm mt-1">
                   {topSkill.score}% success rate
                 </div>
@@ -614,12 +614,12 @@ export default function Analytics() {
         </div>
 
                 {/* Speech Pattern Analysis and Practice Distribution */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <GlassCard className="p-6 h-[550px]">
-            <h2 className="text-xl font-semibold text-white mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+          <GlassCard className="p-4 md:p-6 h-[400px] md:h-[500px] lg:h-[550px]">
+            <h2 className="text-lg md:text-xl font-semibold text-white mb-3 md:mb-6">
               Speech Pattern Analysis
             </h2>
-            <div className="h-[250px] overflow-hidden">
+            <div className="h-[200px] md:h-[250px] overflow-hidden">
               {loading ? (
                 <div className="flex items-center justify-center h-full">
                   <div className="animate-spin rounded-full h-14 w-14 border-t-2 border-b-2 border-white"></div>
@@ -635,8 +635,8 @@ export default function Analytics() {
             </div>
             <div className="text-white/70 text-sm mt-6">
               <h3 className="font-semibold mb-3 text-white text-base">Analysis Insights:</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="bg-white/5 p-3 rounded-lg">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3">
+                <div className="bg-white/5 p-2 md:p-3 rounded-lg">
                   <div className="flex items-center justify-between">
                     <span className="font-medium">Content Structure</span>
                     <span className="text-right font-bold" style={{ color: gradientColors[0].solid }}>{speechMetrics.content_structure}%</span>
@@ -647,7 +647,7 @@ export default function Analytics() {
                       : 'Needs improvement in organization'}
                   </div>
                 </div>
-                <div className="bg-white/5 p-3 rounded-lg">
+                <div className="bg-white/5 p-2 md:p-3 rounded-lg">
                   <div className="flex items-center justify-between">
                     <span className="font-medium">Delivery</span>
                     <span className="text-right font-bold" style={{ color: gradientColors[1].solid }}>{speechMetrics.delivery}%</span>
@@ -658,7 +658,7 @@ export default function Analytics() {
                       : 'Work on pace and clarity'}
                   </div>
                 </div>
-                <div className="bg-white/5 p-3 rounded-lg">
+                <div className="bg-white/5 p-2 md:p-3 rounded-lg">
                   <div className="flex items-center justify-between">
                     <span className="font-medium">Body Language</span>
                     <span className="text-right font-bold" style={{ color: gradientColors[2].solid }}>{speechMetrics.body_language}%</span>
@@ -669,7 +669,7 @@ export default function Analytics() {
                       : 'Improve posture and gestures'}
                   </div>
                 </div>
-                <div className="bg-white/5 p-3 rounded-lg">
+                <div className="bg-white/5 p-2 md:p-3 rounded-lg">
                   <div className="flex items-center justify-between">
                     <span className="font-medium">Vocal Variety</span>
                     <span className="text-right font-bold" style={{ color: gradientColors[3].solid }}>{speechMetrics.vocal_variety}%</span>
@@ -684,8 +684,8 @@ export default function Analytics() {
             </div>
           </GlassCard>
 
-          <GlassCard className="p-6 h-[550px]">
-            <h2 className="text-xl font-semibold text-white mb-6">
+          <GlassCard className="p-4 md:p-6 h-[400px] md:h-[500px] lg:h-[550px]">
+            <h2 className="text-lg md:text-xl font-semibold text-white mb-3 md:mb-6">
               Practice Distribution
             </h2>
             <div className="h-[350px] mt-16 overflow-hidden">
@@ -701,12 +701,12 @@ export default function Analytics() {
         </div>
 
         {/* Progress Over Time Chart - Changed to Wave-like Area Chart */}
-        <div className="grid grid-cols-1 gap-4">
-          <GlassCard className="p-6">
-            <div className="flex justify-between items-center mb-6">
+        <div className="grid grid-cols-1 gap-3 md:gap-4">
+          <GlassCard className="p-4 md:p-6">
+            <div className="flex justify-between items-center mb-3 md:mb-6">
               <h2 className="text-xl font-semibold text-white">Progress Over Time</h2>
             </div>
-            <div className="h-[300px] overflow-hidden">
+            <div className="h-[250px] md:h-[300px] overflow-hidden">
               {loading ? (
                 <div className="flex items-center justify-center h-full">
                   <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div>
@@ -757,12 +757,12 @@ export default function Analytics() {
         </div>
 
         {/* Hourly Activity and Recent Achievements */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <GlassCard className="p-6 h-full">
-            <h2 className="text-xl font-semibold text-white mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+          <GlassCard className="p-4 md:p-6 h-full">
+            <h2 className="text-lg md:text-xl font-semibold text-white mb-3 md:mb-6">
               Hourly Activity
             </h2>
-            <div className="h-[300px] overflow-hidden">
+            <div className="h-[250px] md:h-[300px] overflow-hidden">
               {loading ? (
                 <div className="flex items-center justify-center h-full">
                   <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div>
@@ -795,14 +795,14 @@ export default function Analytics() {
             </div>
           </GlassCard>
 
-          <GlassCard className="p-6 h-full">
-            <div className="flex justify-between items-center mb-6">
+          <GlassCard className="p-4 md:p-6 h-full">
+            <div className="flex justify-between items-center mb-3 md:mb-6">
               <h2 className="text-xl font-semibold text-white flex items-center">
                 <HiSparkles className="mr-2 text-yellow-400" /> Recent Achievements
               </h2>
               <button
                 onClick={loadDemoData}
-                className="text-xs bg-gradient-to-r from-yellow-500 to-amber-600 text-white px-3 py-1 rounded-full transition hover:scale-105 ml-48"
+                className="text-xs bg-gradient-to-r from-yellow-500 to-amber-600 text-white px-2 md:px-3 py-1 rounded-full transition hover:scale-105 ml-2 md:ml-4 lg:ml-48"
               >
                 Load Demo Data
               </button>

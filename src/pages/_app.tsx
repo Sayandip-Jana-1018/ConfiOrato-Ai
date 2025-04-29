@@ -5,6 +5,7 @@ import { NavigationProvider } from '../context/NavigationContext';
 import VoiceNavigationHandler from '../components/voice-assistant/VoiceNavigationHandler';
 import '../styles/globals.css';
 import '../styles/markdown.css';
+import '../styles/responsive.css';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

@@ -3,7 +3,11 @@ import { VoiceAssistant } from '../voice-assistant/VoiceAssistant';
 import { useVoiceAssistant } from '@/context/VoiceAssistantContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const NavbarVoiceAssistant: React.FC = () => {
+interface NavbarVoiceAssistantProps {
+  className?: string;
+}
+
+const NavbarVoiceAssistant: React.FC<NavbarVoiceAssistantProps> = ({ className }) => {
   const { isEnabled } = useVoiceAssistant();
 
   // Don't render if voice assistant is disabled
@@ -14,7 +18,7 @@ const NavbarVoiceAssistant: React.FC = () => {
   return (
     <AnimatePresence>
       <motion.div 
-        className="relative"
+        className={`relative ${className || ''}`}
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.8 }}

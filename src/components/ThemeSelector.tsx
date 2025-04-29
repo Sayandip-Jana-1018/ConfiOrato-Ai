@@ -26,17 +26,17 @@ export default function ThemeSelector() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="fixed top-4 right-4 z-50">
+    <div className="fixed bottom-4 right-4 z-50">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-10 h-10 rounded-xl bg-black/30 backdrop-blur-md hover:bg-black/40 transition-all duration-200 flex items-center justify-center shadow-lg border border-white/10"
+        className="w-8 h-8 rounded-xl bg-black/30 backdrop-blur-md hover:bg-black/40 transition-all duration-200 flex items-center justify-center shadow-lg border border-white/10"
         aria-label="Open theme settings"
       >
         <Cog6ToothIcon className="w-6 h-6 text-white" />
       </button>
 
       {isOpen && (
-        <div className="absolute top-12 right-0 bg-black/30 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white/10 w-80">
+        <div className="absolute bottom-12 right-0 bg-black/30 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white/10 w-80">
           <h2 className="text-white mb-3 font-semibold text-sm">Theme Colors</h2>
           <p className="text-white/60 text-xs mb-4">Choose your preferred theme color</p>
           <div className="grid grid-cols-4 gap-3">

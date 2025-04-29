@@ -564,15 +564,15 @@ export default function Exercises() {
 
   return (
     <AppLayout title="Exercises">
-      <div className="mt-10 space-y-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <GlassCard className="p-6">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-semibold text-white text-center">SWOT Analysis</h2>
-              <div className="flex">
+      <div className="mt-6 md:mt-8 lg:mt-10 space-y-4 md:space-y-6 px-3 md:px-4 lg:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+          <GlassCard className="p-4 md:p-6">
+            <div className="flex flex-wrap justify-between items-center mb-3 md:mb-4 gap-2">
+              <h2 className="text-lg md:text-xl font-semibold text-white text-center">SWOT Analysis</h2>
+              <div className="flex flex-wrap gap-2">
                 <button
                   onClick={loadDemoData}
-                  className="text-xs bg-gradient-to-r from-yellow-500 to-amber-600 text-white px-3 py-1 rounded-full transition hover:scale-105 mr-2"
+                  className="text-xs bg-gradient-to-r from-yellow-500 to-amber-600 text-white px-2 md:px-3 py-1 rounded-full transition hover:scale-105"
                 >
                   Load Demo Data
                 </button>
@@ -662,14 +662,14 @@ export default function Exercises() {
                       
                       fetchRealData();
                     }}
-                    className="text-xs bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-3 py-1 rounded-full transition hover:scale-105"
+                    className="text-xs bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-2 md:px-3 py-1 rounded-full transition hover:scale-105"
                   >
                     Show Real Data
                   </button>
                 )}
               </div>
             </div>
-            <div className="h-[300px] flex items-center justify-center">
+            <div className="h-[250px] md:h-[300px] overflow-hidden">
               {loading ? (
                 <div className="flex items-center justify-center h-full">
                   <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div>
@@ -750,9 +750,9 @@ export default function Exercises() {
             </div>
           </GlassCard>
           
-          <GlassCard className="p-6">
+          <GlassCard className="p-4 md:p-6">
             <h2 className="text-xl font-semibold text-white mb-4 text-center">Skills</h2>
-            <div className="h-[300px] flex items-center justify-center">
+            <div className="h-[250px] md:h-[300px] overflow-hidden">
               {loading ? (
                 <div className="flex items-center justify-center h-full">
                   <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div>
@@ -787,7 +787,7 @@ export default function Exercises() {
             </div>
           </GlassCard>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-3 md:gap-4">
         {/* Quizzes Section */}
         <GlassCard className="p-6">
           <h2 className="text-xl font-semibold text-white mb-4 flex items-center justify-center">
@@ -801,8 +801,8 @@ export default function Exercises() {
                   <span className="text-white/70">Score: {quizScore}/{currentQuestionIndex}</span>
                 </div>
                 
-                <div className="bg-white/5 rounded-lg p-6 mb-6">
-                  <h3 className="text-lg text-white mb-4 text-center">{quizQuestions[currentQuestionIndex].question}</h3>
+                <div className="bg-white/5 rounded-lg p-3 md:p-6 mb-4 md:mb-6">
+                  <h3 className="text-base md:text-lg text-white mb-3 md:mb-4 text-center">{quizQuestions[currentQuestionIndex].question}</h3>
                   
                   <div className="space-y-3">
                     {quizQuestions[currentQuestionIndex].options.map((option, index) => (
@@ -893,7 +893,7 @@ export default function Exercises() {
                 <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full overflow-y-auto pr-2 custom-scrollbar">
+              <div className="grid grid-cols-1 gap-4 h-full overflow-y-auto pr-2 custom-scrollbar">
                 {tasks.map((task, index) => (
                   <motion.div
                     key={index}
@@ -927,7 +927,7 @@ export default function Exercises() {
                     <div className="mt-4 flex justify-end">
                       <button 
                         onClick={() => handleTaskCompletion(task.id)}
-                        className={`px-3 py-1.5 rounded-lg text-white text-sm ${
+                        className={`px-3 py-1.5 md:px-4 md:py-2 rounded-lg text-white mt-3 md:mt-4 text-sm md:text-base ${
                           task.completed 
                             ? 'bg-green-500/20 cursor-not-allowed' 
                             : 'bg-white/10 hover:bg-white/20'
@@ -945,7 +945,7 @@ export default function Exercises() {
             <div className="mt-6 flex justify-center">
               <button
                 onClick={generateTasks}
-                className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-white flex items-center"
+                className="px-3 py-1.5 md:px-4 md:py-2 bg-white/10 hover:bg-white/20 rounded-lg text-white flex items-center text-sm md:text-base"
                 disabled={isLoadingTasks}
               >
                 <HiRefresh className="mr-2" /> Refresh Tasks

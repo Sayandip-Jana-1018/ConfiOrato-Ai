@@ -218,59 +218,61 @@ export default function VideoAnalysis() {
   // UI rendering (simplified; adjust as needed)
   return (
     <AppLayout>
-      <div className="max-w-8xl mx-auto px-4 py-8 space-y-6">
-        <GlassCard className="p-6 text-center">
-          <h1 className="text-3xl font-bold mb-2">Video Analysis</h1>
-          <div className="flex justify-center gap-4 mt-4">
+      <div className="max-w-8xl mx-auto px-4 md:px-6 py-4 md:py-6 lg:py-8 space-y-4 md:space-y-6">
+        <GlassCard className="p-4 md:p-6 text-center">
+          <h1 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2">Video Analysis</h1>
+          <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-4 mt-3 md:mt-4">
             <motion.button
               onClick={() => setActiveTab('voice')}
-              className={`px-6 py-2 rounded-lg ${activeTab === 'voice' ? 'text-white border' : 'bg-white/5'}`}
+              className={`px-3 sm:px-4 md:px-6 py-2 rounded-lg ${activeTab === 'voice' ? 'text-white border' : 'bg-white/5'} w-full sm:w-auto`}
             >
-              <HiMicrophone className="w-5 h-5 ml-10 mb-2" /> Voice Analysis
+              <div className="flex items-center justify-center">
+                <HiMicrophone className="w-4 h-4 md:w-5 md:h-5 mr-2" /> Voice Analysis
+              </div>
             </motion.button>
             <motion.button
               onClick={() => setActiveTab('body')}
-              className={`px-6 py-2 rounded-lg ${activeTab === 'body' ? 'text-white border' : 'bg-white/5'}`}
+              className={`px-3 sm:px-4 md:px-6 py-2 rounded-lg ${activeTab === 'body' ? 'text-white border' : 'bg-white/5'} w-full sm:w-auto`}
             >
-              <HiVideoCamera className="w-5 h-5 ml-10 mb-2" /> Body Language
+              <div className="flex items-center justify-center">
+                <HiVideoCamera className="w-4 h-4 md:w-5 md:h-5 mr-2" /> Body Language
+              </div>
             </motion.button>
           </div>
         </GlassCard>
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr,1fr,1fr] gap-6 mx-auto">
-          {/* Left panel - Video feed (only shown for voice analysis) */}
-          {activeTab === 'voice' && (
-            <GlassCard className="relative lg:col-span-1 mx-auto w-full max-w-[700px] h-full p-0">
-              <div className="rounded-xl h-[670px] bg-black/50 flex items-center justify-center">
-                {stream && cameraSettings.videoEnabled ? (
-                  <video
-                    ref={videoRef}
-                    autoPlay
-                    playsInline
-                    muted
-                    className="w-full h-full object-contain"
-                    style={{ transform: 'scaleX(-1)' }}
-                  />
-                ) : (
-                  <div className="flex items-center justify-center h-full text-gray-300">
-                    {videoError || 'Camera is off'}
-                  </div>
-                )}
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 flex flex-col items-center">
-                <button
-                  onClick={handleRecordingToggle}
-                  className={`px-6 py-3 rounded-lg ${isRecording ? 'bg-red-500' : 'bg-purple-600'} text-white font-medium`}
-                  disabled={!stream}
-                >
-                  {isRecording ? 'Stop Recording' : 'Start Recording'}
-                </button>
-                {isRecording && <div className="mt-2 text-white">Recording: {formatTime(recordingTime)}</div>}
-              </div>
-            </GlassCard>
-          )}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6 mx-auto">
+          {/* Left panel - Video feed */}
+          <GlassCard className="lg:col-span-1 p-4 md:p-6 h-full">
+            <div className="rounded-xl h-[580px] bg-black/50 flex items-center justify-center">
+              {stream && cameraSettings.videoEnabled ? (
+                <video
+                  ref={videoRef}
+                  autoPlay
+                  playsInline
+                  muted
+                  className="w-full h-full object-contain"
+                  style={{ transform: 'scaleX(-1)' }}
+                />
+              ) : (
+                <div className="flex items-center justify-center h-full text-gray-300">
+                  {videoError || 'Camera is off'}
+                </div>
+              )}
+            </div>
+            <div className="mt-4 flex justify-center">
+              <button
+                onClick={handleRecordingToggle}
+                className={`px-6 py-3 rounded-lg ${isRecording ? 'bg-red-500' : 'bg-purple-600'} text-white font-medium`}
+                disabled={!stream}
+              >
+                {isRecording ? 'Stop Recording' : 'Start Recording'}
+              </button>
+              {isRecording && <div className="ml-4 text-white flex items-center">Recording: {formatTime(recordingTime)}</div>}
+            </div>
+          </GlassCard>
           
           {/* Middle panel - Analysis component */}
-          <GlassCard className={`p-6 ${activeTab === 'voice' ? 'lg:col-span-1' : 'lg:col-span-2'}`}>
+          <GlassCard className="p-6 lg:col-span-1">
             {/* Camera controls - always visible in both tabs */}
             <div className="flex justify-end mb-4">
               <button onClick={toggleCamera} className="p-2 rounded-lg bg-black/40 mr-2">
@@ -318,7 +320,7 @@ export default function VideoAnalysis() {
           </GlassCard>
           
           {/* Right panel - Virtual Coach and feedback */}
-          <GlassCard className={`p-6 ${activeTab === 'voice' ? 'lg:col-span-1' : ''}`}>
+          <GlassCard className="p-6 lg:col-span-1">
             <div className="h-[300px]">
               <VirtualCoach 
                 modelUrl="/models/virtual_coach.glb" 

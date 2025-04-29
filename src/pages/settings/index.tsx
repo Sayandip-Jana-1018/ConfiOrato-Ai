@@ -793,20 +793,20 @@ Make sure you have created the "user" bucket in Supabase storage and set up the 
 
   return (
     <AppLayout title="Settings">
-      <div className="mt-10 space-y-6">        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="mt-4 sm:mt-6 md:mt-10 space-y-4 sm:space-y-6">        
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {/* Profile Information */}
-          <GlassCard className="p-6">
-            <div className="flex flex-col items-center text-center mb-6">
-              <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center mb-3">
+          <GlassCard className="p-4 sm:p-6">
+            <div className="flex flex-col items-center text-center mb-4 sm:mb-6">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-blue-500/20 flex items-center justify-center mb-2 sm:mb-3">
                 <HiUser className="w-6 h-6 text-blue-500" />
               </div>
-              <h2 className="text-xl font-semibold text-white">Profile Information</h2>
+              <h2 className="text-lg sm:text-xl font-semibold text-white mb-1">Profile Information</h2>
             </div>
             
             <div className="flex flex-col items-center">
               {/* Profile Image */}
-              <div className="mb-6">
+              <div className="mb-3 sm:mb-4 md:mb-5">
                 <div className="w-32 h-32 ml-6 rounded-full overflow-hidden border-4 border-white/10 mb-3 relative group">
                   {settings.profile.photoUrl ? (
                     <img 
@@ -836,16 +836,16 @@ Make sure you have created the "user" bucket in Supabase storage and set up the 
                     </label>
                   </div>
                 </div>
-                <h3 className="text-lg font-medium text-white">{settings.profile.full_name || 'Your Name'}</h3>
-                <p className="text-white/60 text-sm">{settings.profile.email || 'your.email@example.com'}</p>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-medium text-white">{settings.profile.full_name || 'Your Name'}</h3>
+                <p className="text-white/60 text-xs sm:text-sm md:text-base">{settings.profile.email || 'your.email@example.com'}</p>
               </div>
               
               {/* Profile Details */}
-              <div className="w-full space-y-4">
-                <div className="grid grid-cols-2 gap-2">
-                <div className="flex items-center gap-2">
+              <div className="w-full space-y-4 sm:space-y-6 md:space-y-8">
+                <div className="grid grid-cols-2 gap-2 sm:gap-4 md:gap-6">
+                <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
                   <div className="">
-                    <label className="block text-white/60 text-sm mb-1">Full Name</label>
+                    <label className="block text-white/60 text-sm sm:text-base md:text-lg mb-1 sm:mb-2">Full Name</label>
                     <div className="flex items-center">
                     <button 
                     className="mr-2 p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
@@ -864,9 +864,9 @@ Make sure you have created the "user" bucket in Supabase storage and set up the 
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
                   <div className="">
-                    <label className="block text-white/60 text-sm mb-1">Phone Number</label>
+                    <label className="block text-white/60 text-sm sm:text-base md:text-lg mb-1 sm:mb-2">Phone Number</label>
                     <input 
                       type="tel" 
                       value={settings.profile.phone} 
@@ -883,9 +883,9 @@ Make sure you have created the "user" bucket in Supabase storage and set up the 
                   </button>
                 </div>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
                 <div>
-                  <label className="block text-white/60 text-sm mb-1">Email</label>
+                  <label className="block text-white/60 text-sm sm:text-base md:text-lg mb-1 sm:mb-2">Email</label>
                   <input 
                     type="email" 
                     value={settings.profile.email} 
@@ -897,7 +897,7 @@ Make sure you have created the "user" bucket in Supabase storage and set up the 
                 </div>
                 
                 <div>
-                  <label className="block text-white/60 text-sm mb-1">Role</label>
+                  <label className="block text-white/60 text-sm sm:text-base md:text-lg mb-1 sm:mb-2">Role</label>
                   <input 
                     type="text" 
                     value={settings.profile.role} 
@@ -909,7 +909,7 @@ Make sure you have created the "user" bucket in Supabase storage and set up the 
                 </div>
                 
                 <div>
-                  <label className="block text-white/60 text-sm mb-1">Bio</label>
+                  <label className="block text-white/60 text-sm sm:text-base md:text-lg mb-1 sm:mb-2">Bio</label>
                   <textarea 
                     value={settings.profile.bio} 
                     onChange={(e) => handleSettingChange('profile', { ...settings.profile, bio: e.target.value })}
@@ -972,18 +972,18 @@ Make sure you have created the "user" bucket in Supabase storage and set up the 
           </GlassCard>
           
           {/* Theme Settings */}
-          <GlassCard className="p-6">
-            <div className="flex flex-col items-center text-center mb-6">
+          <GlassCard className="p-4 sm:p-6 md:p-8">
+            <div className="flex flex-col items-center text-center mb-4 sm:mb-6 md:mb-8">
               <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center mb-3">
                 <HiColorSwatch className="w-6 h-6 text-purple-500" />
               </div>
-              <h2 className="text-xl font-semibold text-white">Theme Settings</h2>
+              <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-1">Theme Settings</h2>
             </div>
             
-            <div className="space-y-6">
+            <div className="space-y-6 sm:space-y-8 md:space-y-10">
               <div>
                 <h3 className="text-white font-medium mb-3 text-center">Color Theme</h3>
-                <div className="grid grid-cols-5 gap-2">
+                <div className="grid grid-cols-5 gap-2 sm:gap-4 md:gap-6">
                   {themeColors.map((color, index) => (
                     <button
                       key={index}
@@ -996,7 +996,7 @@ Make sure you have created the "user" bucket in Supabase storage and set up the 
                     />
                   ))}
                 </div>
-                <p className="text-white/60 text-sm text-center mt-3">
+                <p className="text-white/60 text-sm sm:text-base md:text-lg text-center mt-3">
                   For more colors, use the Theme Selector in the top-right corner
                 </p>
               </div>
@@ -1011,33 +1011,33 @@ Make sure you have created the "user" bucket in Supabase storage and set up the 
           </GlassCard>
           
           {/* Account Management */}
-          <GlassCard className="p-6">
-            <div className="flex flex-col items-center text-center mb-6">
-              <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center mb-3">
+          <GlassCard className="p-4 sm:p-6 md:p-8">
+            <div className="flex flex-col items-center text-center mb-4 sm:mb-6 md:mb-8">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl bg-blue-500/20 flex items-center justify-center mb-2 sm:mb-3 md:mb-4">
                 <HiKey className="w-6 h-6 text-blue-500" />
               </div>
-              <h2 className="text-xl font-semibold text-white">Account Management</h2>
+              <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-1">Account Management</h2>
             </div>
             
-            <div className="space-y-6">
-              <div className="space-y-4">
+            <div className="space-y-6 sm:space-y-8 md:space-y-10">
+              <div className="space-y-3 sm:space-y-4 md:space-y-6">
                 <h3 className="text-white font-medium">Change Password</h3>
                 
                 {passwordError && (
-                  <div className="bg-red-500/20 border border-red-500/50 text-white rounded-lg p-3 text-sm">
+                  <div className="bg-red-500/20 border border-red-500/50 text-white rounded-lg p-3 text-sm sm:text-base md:text-lg">
                     {passwordError}
                   </div>
                 )}
                 
                 {passwordSuccess && (
-                  <div className="bg-green-500/20 border border-green-500/50 text-white rounded-lg p-3 text-sm">
+                  <div className="bg-green-500/20 border border-green-500/50 text-white rounded-lg p-3 text-sm sm:text-base md:text-lg">
                     {passwordSuccess}
                   </div>
                 )}
                 
-                <form onSubmit={(e) => { e.preventDefault(); handlePasswordChange(); }} className="space-y-4">
+                <form onSubmit={(e) => { e.preventDefault(); handlePasswordChange(); }} className="space-y-4 sm:space-y-6 md:space-y-8">
                   <div>
-                    <label className="block text-white/60 text-sm mb-1">Current Password</label>
+                    <label className="block text-white/60 text-sm sm:text-base md:text-lg mb-1 sm:mb-2">Current Password</label>
                     <input
                       type="password"
                       value={settings.account.currentPassword}
@@ -1048,7 +1048,7 @@ Make sure you have created the "user" bucket in Supabase storage and set up the 
                   </div>
                   
                   <div>
-                    <label className="block text-white/60 text-sm mb-1">New Password</label>
+                    <label className="block text-white/60 text-sm sm:text-base md:text-lg mb-1 sm:mb-2">New Password</label>
                     <input
                       type="password"
                       value={settings.account.newPassword}
@@ -1059,7 +1059,7 @@ Make sure you have created the "user" bucket in Supabase storage and set up the 
                   </div>
                   
                   <div>
-                    <label className="block text-white/60 text-sm mb-1">Confirm New Password</label>
+                    <label className="block text-white/60 text-sm sm:text-base md:text-lg mb-1 sm:mb-2">Confirm New Password</label>
                     <input
                       type="password"
                       value={settings.account.confirmPassword}
@@ -1113,19 +1113,19 @@ Make sure you have created the "user" bucket in Supabase storage and set up the 
           </GlassCard>
           
           {/* Notifications */}
-          <GlassCard className="p-6">
-            <div className="flex flex-col items-center text-center mb-6">
+          <GlassCard className="p-4 sm:p-6 md:p-8">
+            <div className="flex flex-col items-center text-center mb-4 sm:mb-6 md:mb-8">
               <div className="w-12 h-12 rounded-xl bg-yellow-500/20 flex items-center justify-center mb-3">
                 <HiBell className="w-6 h-6 text-yellow-500" />
               </div>
-              <h2 className="text-xl font-semibold text-white">Notifications</h2>
+              <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-1">Notifications</h2>
             </div>
             
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4 md:space-y-6">
               <div className="flex items-center justify-between">
                 <div className="text-left">
                   <h3 className="text-white font-medium">Email Notifications</h3>
-                  <p className="text-white/60 text-sm">Receive updates and reminders via email</p>
+                  <p className="text-white/60 text-sm sm:text-base md:text-lg">Receive updates and reminders via email</p>
                 </div>
                 <label className="relative inline-flex items-center cursor-pointer">
                   <input
@@ -1141,7 +1141,7 @@ Make sure you have created the "user" bucket in Supabase storage and set up the 
               <div className="flex items-center justify-between">
                 <div className="text-left">
                   <h3 className="text-white font-medium">Practice Reminders</h3>
-                  <p className="text-white/60 text-sm">Get notified about scheduled practice sessions</p>
+                  <p className="text-white/60 text-sm sm:text-base md:text-lg">Get notified about scheduled practice sessions</p>
                 </div>
                 <label className="relative inline-flex items-center cursor-pointer">
                   <input
@@ -1157,7 +1157,7 @@ Make sure you have created the "user" bucket in Supabase storage and set up the 
               <div className="flex items-center justify-between">
                 <div className="text-left">
                   <h3 className="text-white font-medium">Community Updates</h3>
-                  <p className="text-white/60 text-sm">Stay informed about community events</p>
+                  <p className="text-white/60 text-sm sm:text-base md:text-lg">Stay informed about community events</p>
                 </div>
                 <label className="relative inline-flex items-center cursor-pointer">
                   <input
@@ -1200,21 +1200,21 @@ Make sure you have created the "user" bucket in Supabase storage and set up the 
           </GlassCard>
           
           {/* Support & Feedback */}
-          <GlassCard className="p-6">
-            <div className="flex flex-col items-center text-center mb-6">
+          <GlassCard className="p-4 sm:p-6 md:p-8">
+            <div className="flex flex-col items-center text-center mb-4 sm:mb-6 md:mb-8">
               <div className="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center mb-3">
                 <HiQuestionMarkCircle className="w-6 h-6 text-green-500" />
               </div>
-              <h2 className="text-xl font-semibold text-white">Support & Feedback</h2>
+              <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-1">Support & Feedback</h2>
             </div>
             
-            <div className="flex flex-col items-center space-y-6">
+            <div className="flex flex-col items-center space-y-6 sm:space-y-8 md:space-y-10">
               <div className="text-center max-w-md mx-auto">
                 <p className="text-white/80 mb-4">
                   We're constantly working to improve your experience. Have questions or suggestions? We'd love to hear from you!
                 </p>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-sm mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <button
                     className="flex flex-col items-center justify-center p-4 rounded-xl bg-black/30 hover:bg-black/40 transition-colors text-white"
                   >
@@ -1288,19 +1288,19 @@ Make sure you have created the "user" bucket in Supabase storage and set up the 
           </GlassCard>
           
           {/* Privacy & Security */}
-          <GlassCard className="p-6">
-            <div className="flex flex-col items-center text-center mb-6">
+          <GlassCard className="p-4 sm:p-6 md:p-8">
+            <div className="flex flex-col items-center text-center mb-4 sm:mb-6 md:mb-8">
               <div className="w-12 h-12 rounded-xl bg-red-500/20 flex items-center justify-center mb-3">
                 <HiShieldCheck className="w-6 h-6 text-red-500" />
               </div>
-              <h2 className="text-xl font-semibold text-white">Privacy & Security</h2>
+              <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-1">Account Security</h2>
             </div>
             
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4 md:space-y-6">
               <div className="flex items-center justify-between">
                 <div className="text-left">
                   <h3 className="text-white font-medium">Show Profile to Others</h3>
-                  <p className="text-white/60 text-sm">Allow others to view your profile information</p>
+                  <p className="text-white/60 text-sm sm:text-base md:text-lg">Allow others to view your profile information</p>
                 </div>
                 <label className="relative inline-flex items-center cursor-pointer">
                   <input
@@ -1316,7 +1316,7 @@ Make sure you have created the "user" bucket in Supabase storage and set up the 
               <div className="flex items-center justify-between">
                 <div className="text-left">
                   <h3 className="text-white font-medium">Share Activity</h3>
-                  <p className="text-white/60 text-sm">Share your practice activity with the community</p>
+                  <p className="text-white/60 text-sm sm:text-base md:text-lg">Share your practice activity with the community</p>
                 </div>
                 <label className="relative inline-flex items-center cursor-pointer">
                   <input
@@ -1332,7 +1332,7 @@ Make sure you have created the "user" bucket in Supabase storage and set up the 
               <div className="flex items-center justify-between">
                 <div className="text-left">
                   <h3 className="text-white font-medium">Allow Direct Messages</h3>
-                  <p className="text-white/60 text-sm">Let other users send you direct messages</p>
+                  <p className="text-white/60 text-sm sm:text-base md:text-lg">Let other users send you direct messages</p>
                 </div>
                 <label className="relative inline-flex items-center cursor-pointer">
                   <input

@@ -742,14 +742,14 @@ export default function Practice() {
 
   return (
     <AppLayout>
-      <div className="mt-10 grid grid-cols-3 gap-6 max-w-8xl mx-auto">
+      <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-8xl mx-auto px-4 md:px-6">
         {/* Left column */}
-        <div className="space-y-6 flex flex-col">
-          <GlassCard className="p-6">
-            <h2 className="text-xl font-bold text-white mb-4 text-center flex items-center justify-center">
+        <div className="space-y-4 md:space-y-6 flex flex-col order-2 md:order-1 lg:order-1">
+          <GlassCard className="p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 text-center flex items-center justify-center">
               <HiCog className="mr-2 text-blue-400" /> Practice Modes
             </h2>
-            <div className="flex flex-col space-y-3">
+            <div className="flex flex-col space-y-2 md:space-y-3">
               {practiceEnvironments.map((environment, index) => (
                 <button
                   key={index}
@@ -768,69 +768,69 @@ export default function Practice() {
           </GlassCard>
           
           {/* Speaking Tips */}
-          <GlassCard className="p-6">
-            <h2 className="text-xl font-bold text-white mb-4 flex items-center">
+          <GlassCard className="p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 flex items-center">
               <HiLightBulb className="mr-2 text-yellow-400" /> Speaking Tips
             </h2>
             
-            <div className="space-y-3">
+            <div className="space-y-2 md:space-y-3">
               {selectedEnvironment && (
                 <>
-                  <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 p-3 rounded-lg">
+                  <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 p-2 md:p-3 rounded-lg">
                     <h3 className="text-white font-medium mb-1 flex items-center">
                       <HiUsers className="text-blue-400 mr-2" /> Audience Connection
                     </h3>
-                    <p className="text-white/80 text-sm">
+                    <p className="text-white/80 text-xs md:text-sm">
                       Make eye contact with different sections of your {selectedEnvironment.id === 'interview' ? 'interviewers' : 'audience'} to create a personal connection.
                     </p>
                   </div>
                   
-                  <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 p-3 rounded-lg">
+                  <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 p-2 md:p-3 rounded-lg">
                     <h3 className="text-white font-medium mb-1 flex items-center">
                       <HiVolumeUp className="text-green-400 mr-2" /> Voice Projection
                     </h3>
-                    <p className="text-white/80 text-sm">
+                    <p className="text-white/80 text-xs md:text-sm">
                       Speak clearly and project your voice to ensure everyone can hear you. Vary your tone to emphasize key points.
                     </p>
                   </div>
                   
-                  <div className="bg-gradient-to-r from-amber-500/20 to-yellow-500/20 p-3 rounded-lg">
+                  <div className="bg-gradient-to-r from-amber-500/20 to-yellow-500/20 p-2 md:p-3 rounded-lg">
                     <h3 className="text-white font-medium mb-1 flex items-center">
                       <HiClock className="text-amber-400 mr-2" /> Pacing
                     </h3>
-                    <p className="text-white/80 text-sm">
+                    <p className="text-white/80 text-xs md:text-sm">
                       Maintain a steady pace, slowing down for important points. Aim for 120-150 words per minute for optimal comprehension.
                     </p>
                   </div>
                   
                   {selectedEnvironment.id === 'interview' && (
-                    <div className="bg-gradient-to-r from-blue-500/20 to-sky-500/20 p-3 rounded-lg">
+                    <div className="bg-gradient-to-r from-blue-500/20 to-sky-500/20 p-2 md:p-3 rounded-lg">
                       <h3 className="text-white font-medium mb-1 flex items-center">
                         <HiChat className="text-blue-400 mr-2" /> STAR Method
                       </h3>
-                      <p className="text-white/80 text-sm">
+                      <p className="text-white/80 text-xs md:text-sm">
                         Structure your answers using the STAR method: Situation, Task, Action, Result to provide comprehensive responses.
                       </p>
                     </div>
                   )}
                   
                   {selectedEnvironment.id === 'classroom' && (
-                    <div className="bg-gradient-to-r from-indigo-500/20 to-violet-500/20 p-3 rounded-lg">
+                    <div className="bg-gradient-to-r from-indigo-500/20 to-violet-500/20 p-2 md:p-3 rounded-lg">
                       <h3 className="text-white font-medium mb-1 flex items-center">
                         <HiAcademicCap className="text-indigo-400 mr-2" /> Engagement
                       </h3>
-                      <p className="text-white/80 text-sm">
+                      <p className="text-white/80 text-xs md:text-sm">
                         Ask rhetorical questions to keep students engaged and encourage participation throughout your lesson.
                       </p>
                     </div>
                   )}
                   
                   {selectedEnvironment.id === 'conference' && (
-                    <div className="bg-gradient-to-r from-purple-500/20 to-fuchsia-500/20 p-3 rounded-lg">
+                    <div className="bg-gradient-to-r from-purple-500/20 to-fuchsia-500/20 p-2 md:p-3 rounded-lg">
                       <h3 className="text-white font-medium mb-1 flex items-center">
                         <HiPresentationChartLine className="text-purple-400 mr-2" /> Technical Clarity
                       </h3>
-                      <p className="text-white/80 text-sm">
+                      <p className="text-white/80 text-xs md:text-sm">
                         Define technical terms before using them and provide real-world examples to illustrate complex concepts.
                       </p>
                     </div>
@@ -840,10 +840,10 @@ export default function Practice() {
             </div>
             
             {/* History button in speaking tips section */}
-            <div className="mt-4">
+            <div className="mt-3 md:mt-4 lg:mt-6 xl:mt-8">
               <button
                 onClick={() => setShowHistory(!showHistory)}
-                className="w-full py-2 px-4 bg-white/10 hover:bg-white/20 rounded-lg text-white font-medium text-sm transition-all flex items-center justify-center"
+                className="w-full py-1.5 md:py-2 px-3 md:px-4 lg:px-6 xl:px-8 bg-white/10 hover:bg-white/20 rounded-lg text-white font-medium text-xs md:text-sm lg:text-base xl:text-lg transition-all flex items-center justify-center"
               >
                 <HiClock className="mr-2" /> {showHistory ? 'Hide Practice History' : 'Show Practice History'}
               </button>
@@ -857,36 +857,36 @@ export default function Practice() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <GlassCard className="p-6">
-                <h2 className="text-xl font-bold text-white mb-4 text-center">Practice History</h2>
+              <GlassCard className="p-4 md:p-6 lg:p-8 xl:p-10">
+                <h2 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-white mb-3 md:mb-4 text-center">Practice History</h2>
                 
                 {sessionHistory.length === 0 ? (
                   <p className="text-white/60 text-center py-4">No practice sessions yet</p>
                 ) : (
-                  <div className="space-y-3">
+                  <div className="space-y-2 md:space-y-3 lg:space-y-4 xl:space-y-6">
                     {sessionHistory.map((session, index) => (
-                      <div key={index} className="bg-white/5 rounded-lg p-3">
+                      <div key={index} className="bg-white/5 rounded-lg p-2 md:p-3 lg:p-4 xl:p-6">
                         <div className="flex justify-between items-center mb-1">
-                          <span className="text-white/80 text-xs">
+                          <span className="text-white/80 text-xs md:text-sm lg:text-base xl:text-lg">
                             {new Date(session.date).toLocaleDateString()}
                           </span>
-                          <span className="text-white/80 text-xs">
+                          <span className="text-white/80 text-xs md:text-sm lg:text-base xl:text-lg">
                             {formatTime(session.duration)}
                           </span>
                         </div>
-                        <p className="text-white text-sm font-medium">{session.environment}</p>
-                        <div className="grid grid-cols-3 gap-1 mt-1">
+                        <p className="text-white text-sm md:text-base lg:text-lg xl:text-xl font-medium">{session.environment}</p>
+                        <div className="grid grid-cols-3 gap-1 md:gap-2 lg:gap-3 xl:gap-4 mt-1">
                           <div className="text-center">
-                            <p className="text-white/60 text-xs">Confidence</p>
-                            <p className="text-white text-sm">{session.metrics.confidence}%</p>
+                            <p className="text-white/60 text-xs md:text-sm lg:text-base xl:text-lg">Confidence</p>
+                            <p className="text-white text-sm md:text-base lg:text-lg xl:text-xl">{session.metrics.confidence}%</p>
                           </div>
                           <div className="text-center">
-                            <p className="text-white/60 text-xs">Clarity</p>
-                            <p className="text-white text-sm">{session.metrics.clarity}%</p>
+                            <p className="text-white/60 text-xs md:text-sm lg:text-base xl:text-lg">Clarity</p>
+                            <p className="text-white text-sm md:text-base lg:text-lg xl:text-xl">{session.metrics.clarity}%</p>
                           </div>
                           <div className="text-center">
-                            <p className="text-white/60 text-xs">Pace</p>
-                            <p className="text-white text-sm">{session.metrics.pace}%</p>
+                            <p className="text-white/60 text-xs md:text-sm lg:text-base xl:text-lg">Pace</p>
+                            <p className="text-white text-sm md:text-base lg:text-lg xl:text-xl">{session.metrics.pace}%</p>
                           </div>
                         </div>
                       </div>
@@ -903,9 +903,9 @@ export default function Practice() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <GlassCard className="p-6">
+            <GlassCard className="p-4 md:p-6 lg:p-8 xl:p-10">
               <div className="flex justify-between items-center mb-4">
-                <h2 className="text-xl font-bold text-white flex items-center">
+                <h2 className="text-2xl font-bold text-white flex items-center">
                   <HiSparkles className="mr-2 text-yellow-400" /> Achievements
                 </h2>
                 <div className="bg-gradient-to-r from-yellow-500/20 to-amber-500/20 px-4 py-2 rounded-full flex items-center">
@@ -915,24 +915,24 @@ export default function Practice() {
                 </div>
               </div>
               
-              <div className="grid grid-cols-2 gap-3">
+              <div className="mt-4 grid grid-cols-4 gap-4">
                 {achievementBadges.slice(0, 4).map(badge => (
                   <div 
                     key={badge.id}
-                    className={`p-3 rounded-lg flex items-center space-x-3 ${
+                    className={`p-3 rounded-lg flex flex-col items-center justify-center ${
                       unlockedAchievements.includes(badge.id) 
                         ? `bg-${badge.color}-500/20 border border-${badge.color}-500/30` 
                         : 'bg-white/5 border border-white/10 opacity-50'
                     }`}
                   >
-                    <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-2 ${
                       unlockedAchievements.includes(badge.id) 
                         ? `bg-gradient-to-br from-${badge.color}-400 to-${badge.color}-600 text-white` 
                         : 'bg-white/10 text-white/30'
                     }`}>
-                      <badge.icon className="w-5 h-5" />
+                      <badge.icon className="w-6 h-6" />
                     </div>
-                    <div>
+                    <div className="text-center">
                       <p className={`text-sm font-medium ${
                         unlockedAchievements.includes(badge.id) ? 'text-white' : 'text-white/50'
                       }`}>
@@ -949,7 +949,7 @@ export default function Practice() {
               {unlockedAchievements.length > 0 && (
                 <button
                   onClick={collectRewards}
-                  className="mt-4 w-full py-2 px-4 bg-gradient-to-r from-yellow-400 to-amber-500 rounded-lg text-white font-medium text-sm transition-all hover:scale-105 flex items-center justify-center"
+                  className="mt-4 md:mt-6 lg:mt-8 xl:mt-10 w-full py-2 md:py-3 lg:py-4 xl:py-6 bg-gradient-to-r from-yellow-400 to-amber-500 rounded-lg text-white font-medium text-sm md:text-base lg:text-lg xl:text-xl transition-all hover:scale-105 flex items-center justify-center"
                 >
                   <HiSparkles className="mr-2" /> Collect Rewards
                 </button>
@@ -962,12 +962,12 @@ export default function Practice() {
                     <CanvasRevealEffect 
                       animationSpeed={1.2}
                       colors={[[255, 215, 0], [255, 165, 0], [255, 140, 0]]}
-                      containerClassName="h-64 rounded-xl"
+                      containerClassName="h-64 md:h-80 lg:h-96 xl:h-112 rounded-xl"
                       active={true}
                     />
                     <div className="absolute inset-0 flex flex-col items-center justify-center">
-                      <h3 className="text-2xl font-bold text-white mb-2">Rewards Collected!</h3>
-                      <p className="text-white/80 text-lg mb-4">+{rewardPoints} points</p>
+                      <h3 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-2">Rewards Collected!</h3>
+                      <p className="text-white/80 text-lg md:text-xl lg:text-2xl xl:text-3xl mb-4">+{rewardPoints} points</p>
                       <div className="flex space-x-2">
                         {unlockedAchievements.map((id) => {
                           const badge = achievementBadges.find(b => b.id === id);
@@ -975,9 +975,9 @@ export default function Practice() {
                           return (
                             <div 
                               key={id}
-                              className={`w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-br from-${badge.color}-400 to-${badge.color}-600`}
+                              className={`w-12 md:w-16 lg:w-20 xl:w-24 h-12 md:h-16 lg:h-20 xl:h-24 rounded-full flex items-center justify-center bg-gradient-to-br from-${badge.color}-400 to-${badge.color}-600`}
                             >
-                              <badge.icon className="w-6 h-6 text-white" />
+                              <badge.icon className="w-6 md:w-8 lg:w-10 xl:w-12 text-white" />
                             </div>
                           );
                         })}
@@ -991,9 +991,9 @@ export default function Practice() {
         </div>
         
         {/* Middle column */}
-        <div className="flex flex-col space-y-6">
-          <GlassCard className="p-6 flex-grow">
-            <h2 className="text-xl font-bold text-white mb-4 text-center">AI Coach</h2>
+        <div className="flex flex-col space-y-4 md:space-y-6 lg:space-y-8 xl:space-y-10 order-1 md:order-2 lg:order-2">
+          <GlassCard className="p-4 md:p-6 lg:p-8 xl:p-10 flex-grow">
+            <h2 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-white mb-3 md:mb-4 text-center">AI Coach</h2>
             <div className="w-full">
               <CoachAvatar 
                 metrics={metrics} 
@@ -1008,16 +1008,16 @@ export default function Practice() {
             {/* Session timer */}
             <div className="mt-6 w-full">
               <div className="flex items-center space-x-2 mb-2 justify-center">
-                <HiClock className="w-5 h-5 text-green-500" />
-                <h3 className="text-lg font-bold text-white text-center">Session Timer</h3>
+                <HiClock className="w-5 md:w-6 lg:w-8 xl:w-10 text-green-500" />
+                <h3 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-white text-center">Session Timer</h3>
               </div>
               
               <div className="text-center">
-                <p className="text-white/60 text-sm mb-2">Track your practice time</p>
-                <p className="text-white text-4xl font-bold mb-2">
+                <p className="text-white/60 text-sm md:text-base lg:text-lg xl:text-xl mb-2">Track your practice time</p>
+                <p className="text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-2">
                   {formatTime(sessionTime)}
                 </p>
-                <p className="text-white/60 text-sm">Target: 5 minutes</p>
+                <p className="text-white/60 text-sm md:text-base lg:text-lg xl:text-xl">Target: 5 minutes</p>
               </div>
             </div>
             
@@ -1026,7 +1026,7 @@ export default function Practice() {
               {/* Analyze button */}
               {!isListening && audioURL && (
                 <button
-                  className={`py-3 px-6 rounded-lg text-white font-medium transition-colors w-full ${
+                  className={`py-3 md:py-4 lg:py-6 xl:py-8 px-6 md:px-8 lg:px-10 xl:px-12 rounded-lg text-white font-medium transition-colors w-full ${
                     isAnalyzing 
                       ? 'bg-purple-600 cursor-wait shadow-lg shadow-purple-600/30' 
                       : `bg-red-600 hover:bg-red-700 shadow-lg shadow-red-600/20`
@@ -1041,7 +1041,7 @@ export default function Practice() {
               {/* Try again button */}
               {audioURL && !isListening && !isAnalyzing && (
                 <button
-                  className={`py-3 px-6 rounded-lg text-white font-medium transition-colors w-full bg-white/10 hover:bg-white/20`}
+                  className={`py-3 md:py-4 lg:py-6 xl:py-8 px-6 md:px-8 lg:px-10 xl:px-12 rounded-lg text-white font-medium transition-colors w-full bg-white/10 hover:bg-white/20`}
                   onClick={resetAnalysis}
                 >
                   Try Again
@@ -1061,9 +1061,9 @@ export default function Practice() {
           </GlassCard>
           
           {/* Virtual Coach 3D Model */}
-          <GlassCard className="p-6">
-            <h2 className="text-xl font-bold text-white mb-4 text-center">Virtual Coach</h2>
-            <div className="h-[300px] w-full relative">
+          <GlassCard className="p-4 md:p-6 lg:p-8 xl:p-10">
+            <h2 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-white mb-3 md:mb-4 text-center">Virtual Coach</h2>
+            <div className="h-[250px] md:h-[300px] lg:h-[350px] xl:h-[400px] w-full relative">
               <VirtualCoach 
                 modelUrl="/models/virtual_coach.glb" 
                 className="h-full w-full" 
@@ -1073,7 +1073,7 @@ export default function Practice() {
         </div>
         
         {/* Right column */}
-        <div className="space-y-6 flex flex-col">
+        <div className="space-y-4 md:space-y-6 lg:space-y-8 xl:space-y-10 flex flex-col order-3 md:order-3 lg:order-3">
           {/* Basic metrics card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1081,7 +1081,7 @@ export default function Practice() {
             transition={{ duration: 0.5 }}
             className="flex-grow"
           >
-            <GlassCard className="p-6 h-full flex flex-col">
+            <GlassCard className="p-6 md:p-8 lg:p-10 xl:p-12 h-full flex flex-col">
               <div className="flex-grow overflow-y-auto">
                 <MetricsDisplay 
                   metrics={isListening ? metrics : {
@@ -1109,8 +1109,8 @@ export default function Practice() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="flex-grow"
           >
-            <GlassCard className="p-6 h-full flex flex-col">
-              <h2 className="text-xl font-bold text-white mb-4 text-center flex items-center justify-center">
+            <GlassCard className="p-6 md:p-8 lg:p-10 xl:p-12 h-full flex flex-col">
+              <h2 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-white mb-3 md:mb-4 text-center flex items-center justify-center">
                 <HiCog className="mr-2 text-purple-400" /> Advanced Metrics
               </h2>
               <div className="flex-grow overflow-y-auto">
@@ -1135,28 +1135,28 @@ export default function Practice() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="flex-grow"
           >
-            <GlassCard className="p-6 h-full flex flex-col">
-              <h2 className="text-xl font-bold text-white mb-4 flex items-center">
+            <GlassCard className="p-6 md:p-8 lg:p-10 xl:p-12 h-full flex flex-col">
+              <h2 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-white mb-3 md:mb-4 flex items-center">
                 <HiLightBulb className="mr-2 text-yellow-400" /> AI Feedback
               </h2>
               
               {isAnalyzing ? (
-                <div className="flex flex-col items-center justify-center h-64">
-                  <div className="w-12 h-12 border-4 border-t-transparent border-white rounded-full animate-spin mb-4"></div>
-                  <p className="text-white/70">Analyzing your speech patterns...</p>
+                <div className="flex flex-col items-center justify-center h-64 md:h-80 lg:h-96 xl:h-112">
+                  <div className="w-12 md:w-16 lg:w-20 xl:w-24 border-4 border-t-transparent border-white rounded-full animate-spin mb-4"></div>
+                  <p className="text-white/70 text-sm md:text-base lg:text-lg xl:text-xl">Analyzing your speech patterns...</p>
                 </div>
               ) : aiFeedback ? (
-                <div className="prose prose-invert max-w-none h-[400px] overflow-y-auto custom-scrollbar pr-2">
+                <div className="prose prose-invert max-w-none h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] overflow-y-auto custom-scrollbar pr-2">
                   <ReactMarkdown>{aiFeedback}</ReactMarkdown>
                   
                   {feedbackPoints && feedbackPoints.length > 0 && (
                     <div className="mt-4 space-y-2">
-                      <h3 className="text-lg font-medium text-white">Key Points</h3>
+                      <h3 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-medium text-white">Key Points</h3>
                       <ul className="space-y-1">
                         {feedbackPoints.map((point, index) => (
                           <li key={index} className="flex items-start">
                             <span className="text-green-400 mr-2">•</span>
-                            <span className="text-white/80">{point}</span>
+                            <span className="text-white/80 text-sm md:text-base lg:text-lg xl:text-xl">{point}</span>
                           </li>
                         ))}
                       </ul>
@@ -1166,7 +1166,7 @@ export default function Practice() {
                   <div className="mt-6 flex justify-center">
                     <button
                       onClick={() => router.push('/analytics')}
-                      className="py-2 px-6 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg text-white font-medium text-sm transition-all hover:scale-105 flex items-center"
+                      className="py-2 md:py-3 lg:py-4 xl:py-6 px-6 md:px-8 lg:px-10 xl:px-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg text-white font-medium text-sm md:text-base lg:text-lg xl:text-xl transition-all hover:scale-105 flex items-center"
                     >
                       <HiChartBar className="mr-2" /> Want Analysis?
                     </button>
@@ -1174,20 +1174,19 @@ export default function Practice() {
                 </div>
               ) : (
                 <div className="text-center py-12">
-                  <p className="text-white/60">Complete a practice session to receive AI feedback</p>
+                  <p className="text-white/60 text-sm md:text-base lg:text-lg xl:text-xl">Complete a practice session to receive AI feedback</p>
                 </div>
               )}
             </GlassCard>
           </motion.div>
         </div>
       </div>
-      <div className="mt-6 flex justify-center">
+      <div className="mt-6 md:mt-8 lg:mt-10 xl:mt-12 flex justify-center">
         <ThemeSelector />
       </div>
     </AppLayout>
   );
 }
-
 // Helper function to generate AI feedback
 function generateAIFeedback(environment: PracticeEnvironment) {
   // Feedback options based on environment

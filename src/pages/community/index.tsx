@@ -347,10 +347,10 @@ export default function Community() {
 
   return (
     <AppLayout title="Community">
-      <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-4">
+      <div className="mt-6 md:mt-8 lg:mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 px-3 md:px-4 lg:px-6">
         <div className="lg:col-span-2">
           {/* Create Post */}
-          <GlassCard className="p-6 mb-4">
+          <GlassCard className="p-4 md:p-6 sticky top-20">
             <div className="flex items-start space-x-4">
               <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-xl overflow-hidden">
                 {userId && userProfile.photoUrl ? (
@@ -404,7 +404,7 @@ export default function Community() {
                 )}
                 
                 <div className="flex items-center justify-between mt-3">
-                  <div className="flex space-x-2">
+                  <div className="flex flex-wrap space-x-2 md:space-x-4">
                     <label className="p-2 rounded-lg bg-white/5 text-white/60 hover:bg-white/10 transition-colors cursor-pointer">
                       <HiPhotograph className="w-5 h-5" />
                       <input 
@@ -434,7 +434,7 @@ export default function Community() {
                     </label>
                   </div>
                   <button 
-                    className="px-4 py-2 rounded-lg text-white transition-colors"
+                    className="px-3 py-1 md:px-4 md:py-2 rounded-lg text-white transition-colors text-sm md:text-base"
                     style={{ backgroundColor: themeColor }}
                     onClick={handleCreatePost}
                     disabled={isPosting || (!newPostContent.trim() && !selectedMedia)}
@@ -450,7 +450,7 @@ export default function Community() {
           <div className="space-y-4">
             {posts.map((post) => (
               <GlassCard key={post.id} className="p-6">
-                <div className="flex space-x-4">
+                <div className="grid grid-cols-1 gap-3 md:gap-4">
                   <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-2xl overflow-hidden">
                     {post.user_avatar ? (
                       <img 
@@ -471,7 +471,7 @@ export default function Community() {
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
+                      <div className="flex items-center space-x-2 md:space-x-4">
                         {post.user_avatar ? (
                           <img 
                             src={post.user_avatar}
@@ -540,14 +540,14 @@ export default function Community() {
                         <span>{post.likes}</span>
                       </button>
                       <button 
-                        className="flex items-center space-x-2 text-white/60 hover:text-white"
+                        className="flex items-center space-x-1 text-white/60 hover:text-white transition-colors cursor-pointer text-sm md:text-base mb-2 md:mb-0"
                         onClick={() => toggleComments(post.id)}
                       >
                         <HiChat className="w-5 h-5" />
                         <span>{post.comments}</span>
                       </button>
                       <button 
-                        className="flex items-center space-x-2 text-white/60 hover:text-white"
+                        className="flex items-center space-x-1 text-white/60 hover:text-white transition-colors cursor-pointer text-sm md:text-base mb-2 md:mb-0"
                         onClick={() => handleSharePost(post.id)}
                       >
                         <HiShare className="w-5 h-5" />
@@ -570,7 +570,7 @@ export default function Community() {
                                     {comment.user_avatar || '👤'}
                                   </div>
                                   <div className="flex-1 bg-white/5 rounded-lg p-3">
-                                    <div className="flex justify-between items-center mb-1">
+                                    <div className="flex justify-between items-center mb-3 md:mb-6">
                                       <h5 className="text-white text-sm font-medium">{comment.user_name || 'Anonymous'}</h5>
                                       <span className="text-white/40 text-xs">{new Date(comment.created_at).toLocaleTimeString()}</span>
                                     </div>
@@ -583,7 +583,7 @@ export default function Community() {
                           )}
                         </div>
                         
-                        <div className="flex space-x-2">
+                        <div className="flex flex-wrap space-x-2 md:space-x-4 mt-3 md:mt-4">
                           <input
                             type="text"
                             placeholder="Add a comment..."
@@ -617,11 +617,11 @@ export default function Community() {
         <div className="space-y-6">
           {/* Top Users */}
           <GlassCard className="p-6">
-            <h2 className="text-xl font-semibold text-white mb-6">Top Contributors</h2>
+            <h2 className="text-lg md:text-xl font-semibold text-white mb-3 md:mb-4">Top Contributors</h2>
             <div className="space-y-4">
               {topUsers.map((user) => (
                 <div key={user.id} className="flex items-center justify-between p-3 rounded-lg bg-white/5">
-                  <div className="flex items-center space-x-3">
+                  <div className="flex items-center space-x-2 md:space-x-3">
                     <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-xl overflow-hidden">
                       {user.avatar ? (
                         <img 
@@ -655,7 +655,7 @@ export default function Community() {
 
           {/* Upcoming Events */}
           <GlassCard className="p-6">
-            <h2 className="text-xl font-semibold text-white mb-6">Upcoming Events</h2>
+            <h2 className="text-lg md:text-xl font-semibold text-white mb-3 md:mb-4">Upcoming Events</h2>
             <div className="space-y-4">
               {events.map((event) => (
                 <div key={event.id} className="p-4 rounded-lg bg-white/5">
@@ -684,7 +684,7 @@ export default function Community() {
 
           {/* Quick Tips */}
           <GlassCard className="p-6">
-            <h2 className="text-xl font-semibold text-white mb-6">Community Tips</h2>
+            <h2 className="text-lg md:text-xl font-semibold text-white mb-3 md:mb-4">Community Tips</h2>
             <div className="space-y-4">
               <div className="flex items-center space-x-3 p-3 rounded-lg bg-white/5">
                 <div className="w-10 h-10 rounded-full bg-yellow-500/20 flex items-center justify-center">

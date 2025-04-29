@@ -32,7 +32,7 @@ export default function AuthPage() {
 
   return (
     <ThemeProvider>
-      <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12"
+      <div className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 py-8 sm:py-10 md:py-12"
         >
         <Head>
           <title>{isSignIn ? 'Sign In' : 'Sign Up'} | ConfiOrato~Ai</title>
@@ -44,15 +44,15 @@ export default function AuthPage() {
         
         {/* Logo and Tagline */}
         <motion.div 
-          className="text-center mb-8"
+          className="text-center mb-6 sm:mb-8"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-4xl font-bold text-white mb-2">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
             ConfiOrato<span className="text-yellow-400">~</span>Ai
           </h1>
-          <p className="text-white/70">Your AI-powered public speaking coach</p>
+          <p className="text-sm sm:text-base text-white/70">Your AI-powered public speaking coach</p>
         </motion.div>
         
         {/* Authentication Form */}
@@ -62,7 +62,7 @@ export default function AuthPage() {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: isSignIn ? 20 : -20 }}
           transition={{ duration: 0.3 }}
-          className="w-full max-w-md"
+          className="w-full max-w-xs sm:max-w-sm md:max-w-md"
         >
           {isSignIn ? (
             <SignInForm onToggleForm={toggleForm} />
@@ -74,7 +74,7 @@ export default function AuthPage() {
         {/* Features Section - Only show on sign up */}
         {!isSignIn && (
           <motion.div 
-            className="mt-8 w-full max-w-md"
+            className="mt-6 sm:mt-8 w-full max-w-xs sm:max-w-sm md:max-w-md"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -83,7 +83,7 @@ export default function AuthPage() {
         )}
         
         {/* Footer */}
-        <div className="mt-4 text-white/50 text-sm">
+        <div className="mt-4 text-white/50 text-xs sm:text-sm">
           &copy; {new Date().getFullYear()} ConfiOrato~Ai. All rights reserved.
         </div>
       </div>

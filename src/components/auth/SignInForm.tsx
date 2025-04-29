@@ -89,13 +89,13 @@ export default function SignInForm({ onToggleForm }: SignInFormProps) {
   };
 
   return (
-    <GlassmorphicCard className="w-full max-w-md">
-      <h2 className="text-2xl font-bold ml-36 text-white mb-6">Sign In</h2>
+    <GlassmorphicCard className="w-full max-w-xs sm:max-w-sm md:max-w-md">
+      <h2 className="text-xl sm:text-2xl font-bold text-center sm:text-center md:ml-36 text-white mb-4 sm:mb-6">Sign In</h2>
       
-      <form onSubmit={handleSignIn} className="space-y-6">
+      <form onSubmit={handleSignIn} className="space-y-4 sm:space-y-6">
         {/* Email field */}
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-white/70 mb-1">
+          <label htmlFor="email" className="block text-xs sm:text-sm font-medium text-white/70 mb-1">
             Email
           </label>
           <input
@@ -104,7 +104,7 @@ export default function SignInForm({ onToggleForm }: SignInFormProps) {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+            className="w-full px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
             placeholder="your@email.com"
           />
         </div>
@@ -112,10 +112,10 @@ export default function SignInForm({ onToggleForm }: SignInFormProps) {
         {/* Password field */}
         <div>
           <div className="flex justify-between items-center mb-1">
-            <label htmlFor="password" className="block text-sm font-medium text-white/70">
+            <label htmlFor="password" className="block text-xs sm:text-sm font-medium text-white/70">
               Password
             </label>
-            <a href="/auth/reset-password" className="text-xs text-blue-400 hover:text-blue-300">
+            <a href="/auth/reset-password" className="text-xs sm:text-xs text-blue-400 hover:text-blue-300">
               Forgot password?
             </a>
           </div>
@@ -125,14 +125,14 @@ export default function SignInForm({ onToggleForm }: SignInFormProps) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+            className="w-full px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
             placeholder="••••••••"
           />
         </div>
         
         {/* Error message */}
         {error && (
-          <div className="bg-red-500/20 text-red-200 p-3 rounded-lg text-sm">
+          <div className="bg-red-500/20 text-red-200 p-2 sm:p-3 rounded-lg text-xs sm:text-sm">
             {error}
           </div>
         )}
@@ -142,7 +142,7 @@ export default function SignInForm({ onToggleForm }: SignInFormProps) {
           <button
             type="submit"
             disabled={loading}
-            className="w-full px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium hover:from-blue-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500/50 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            className="w-full px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium hover:from-blue-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500/50 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
           >
             {loading ? (
               <span className="flex items-center justify-center">
@@ -160,13 +160,10 @@ export default function SignInForm({ onToggleForm }: SignInFormProps) {
       </form>
       
       {/* Sign up link */}
-      <div className="mt-6 text-center">
-        <p className="text-white/70 text-sm">
+      <div className="mt-4 sm:mt-6 text-center">
+        <p className="text-white/70 text-xs sm:text-sm">
           Don't have an account?{' '}
-          <button
-            onClick={onToggleForm}
-            className="text-blue-400 hover:text-blue-300 font-medium"
-          >
+          <button type="button" onClick={onToggleForm} className="text-blue-400 hover:text-blue-300 ml-1 text-xs sm:text-sm font-medium">
             Sign Up
           </button>
         </p>

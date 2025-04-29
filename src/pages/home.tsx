@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { HiMicrophone, HiChartBar, HiAcademicCap, HiLogout } from 'react-icons/hi';
 import { useRouter } from 'next/router';
 import { supabase } from '@/lib/supabase';
@@ -38,6 +39,8 @@ export default function HomePage() {
   const { themeColor } = useTheme();
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
+  const isMobile = useMediaQuery('(max-width: 640px)');
+  const isTablet = useMediaQuery('(min-width: 641px) and (max-width: 1024px)');
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 1500);
@@ -85,7 +88,7 @@ export default function HomePage() {
       <Navbar />
       <Sidebar />
       
-      <main className="flex items-center justify-center min-h-screen pt-16 pl-64">
+      <main className="flex items-center justify-center min-h-screen pt-16 sm:pt-20 md:pt-16 pl-0 sm:pl-16 md:pl-64">
         {isLoading ? (
           <LoadingScreen />
         ) : (
@@ -98,14 +101,14 @@ export default function HomePage() {
                 ease: [0.6, 0.01, -0.05, 0.95],
                 opacity: { duration: 0.8 }
               }}
-              className="relative w-full max-w-4xl mx-auto mb-12 flex justify-center"
+              className="relative w-full max-w-4xl mx-auto mb-12 flex flex-col sm:flex-row justify-center items-center"
             >
               {/* Left Avatar */}
               <motion.div
                 initial={{ x: -50, y: 50, opacity: 0 }}
                 animate={{ x: 0, y: 0, opacity: 1 }}
                 transition={{ delay: 0.3, duration: 1 }}
-                className="relative w-56 h-56 -mr-8 mt-16 group"
+                className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 sm:-mr-8 mt-4 sm:mt-16 group order-2 sm:order-1"
                 whileHover={{ scale: 1.05, rotate: -5 }}
               >
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-2xl group-hover:blur-3xl group-hover:opacity-80 transition-all duration-300" />
@@ -126,7 +129,7 @@ export default function HomePage() {
 
               {/* Main Center Avatar */}
               <motion.div
-                className="relative w-72 ml-16 mr-16 h-72 z-99 group"
+                className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 sm:ml-16 sm:mr-16 z-99 group order-1 sm:order-2 mb-4 sm:mb-0"
                 whileHover={{ scale: 1.1 }}
               >
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-2xl group-hover:blur-3xl group-hover:opacity-80 transition-all duration-300" />
@@ -162,7 +165,7 @@ export default function HomePage() {
                 initial={{ x: 50, y: 50, opacity: 0 }}
                 animate={{ x: 0, y: 0, opacity: 1 }}
                 transition={{ delay: 0.3, duration: 1 }}
-                className="relative w-56 h-56 -ml-8 mt-16 group"
+                className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 sm:-ml-8 mt-4 sm:mt-16 group order-3"
                 whileHover={{ scale: 1.05, rotate: 5 }}
               >
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-pink-500/20 to-orange-500/20 blur-2xl group-hover:blur-3xl group-hover:opacity-80 transition-all duration-300" />
@@ -186,7 +189,7 @@ export default function HomePage() {
               initial={{ y: 40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-5xl md:text-6xl font-bold text-white mb-6 text-center"
+              className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6 text-center"
             >
               ConfiOrato~
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">AI</span>
@@ -196,7 +199,7 @@ export default function HomePage() {
               initial={{ y: 40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-xl text-white/80 mb-16 text-center max-w-2xl"
+              className="text-lg sm:text-xl text-white/80 mb-8 sm:mb-16 text-center max-w-2xl px-4 sm:px-0"
             >
               Your AI-powered public speaking coach that helps you build confidence and master communication
             </motion.p>
@@ -205,7 +208,7 @@ export default function HomePage() {
               initial={{ y: 60, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 0.8 }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 w-full max-w-5xl"
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-16 w-full max-w-5xl px-4 sm:px-6 md:px-0"
             >
               {features.map((feature, index) => (
                 <motion.div
@@ -232,7 +235,7 @@ export default function HomePage() {
               initial={{ y: 60, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 1 }}
-              className="flex flex-col sm:flex-row gap-4 items-center justify-center"
+              className="flex flex-col sm:flex-row gap-4 items-center justify-center px-4 sm:px-0"
             >
               <Link href="/practice" legacyBehavior={false}>
                 <motion.button

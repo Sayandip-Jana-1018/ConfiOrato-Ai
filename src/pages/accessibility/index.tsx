@@ -44,17 +44,6 @@ const audioLessons = [
     content: '',
     icon: <HiOutlineAcademicCap className="w-6 h-6 text-green-400" />
   },
-  {
-    id: 4,
-    title: 'Emotional Expression in Speaking',
-    duration: '18 mins',
-    description: 'How to convey emotions effectively through speech',
-    progress: 40,
-    topic: 'emotion',
-    audioUrl: '',
-    content: '',
-    icon: <HiOutlineLightBulb className="w-6 h-6 text-yellow-400" />
-  }
 ];
 
 // Sign language lessons with real YouTube video IDs
@@ -246,18 +235,18 @@ export default function Accessibility() {
 
   return (
     <AppLayout title="Accessibility">
-      <div className="mt-10 flex flex-col items-center max-w-8xl mx-auto">
+      <div className="flex flex-col items-center max-w-7xl mx-auto px-2 sm:px-4">
         {/* Header with colorful gradient */}
-        <GlassCard className="w-full p-6 mb-6">
-          <div className="flex items-center justify-center gap-4 mb-6">
+        <GlassCard className="p-4 sm:p-6 backdrop-blur-md bg-black/40 border border-purple-500/30 shadow-lg">
+          <div className="flex flex-col items-center justify-center gap-2">
             <div className="p-4 rounded-full bg-gradient-to-r from-red-400 to-purple-500">
               <HiHeart className="w-8 h-8 text-white" />
             </div>
-            <h1 className="text-3xl font-bold text-white">Accessible Learning</h1>
+            <h1 className="text-xl sm:text-2xl font-bold text-white">Accessibility Features</h1>
           </div>
           
           {/* Tab Navigation with enhanced styling */}
-          <div className="flex justify-center gap-4 flex-wrap" role="tablist" aria-label="Accessibility options">
+          <div className="flex justify-center gap-3 mt-4" role="tablist" aria-label="Accessibility options">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -265,7 +254,7 @@ export default function Accessibility() {
                 setActiveTab('settings');
                 speak('Switched to Accessibility Settings tab');
               }}
-              className={`flex items-center gap-2 px-6 py-3 rounded-xl ${
+              className={`flex items-center gap-2 px-6 py-3 rounded-xl text-sm ${
                 activeTab === 'settings' 
                   ? 'bg-gradient-to-r from-green-500/30 to-emerald-500/30 text-green-400 border border-green-500/30' 
                   : 'bg-white/5 text-white/60'
@@ -285,7 +274,7 @@ export default function Accessibility() {
                 setActiveTab('audio');
                 speak('Switched to Audio Lessons tab. This tab contains audio lessons for public speaking skills.');
               }}
-              className={`flex items-center gap-2 px-6 py-3 rounded-xl ${
+              className={`flex items-center gap-2 px-6 py-3 rounded-xl text-sm ${
                 activeTab === 'audio' 
                   ? 'bg-gradient-to-r from-purple-500/30 to-pink-500/30 text-purple-400 border border-purple-500/30' 
                   : 'bg-white/5 text-white/60'
@@ -305,7 +294,7 @@ export default function Accessibility() {
                 setActiveTab('sign');
                 speak('Switched to Sign Language tab. This tab contains sign language video tutorials.');
               }}
-              className={`flex items-center gap-2 px-6 py-3 rounded-xl ${
+              className={`flex items-center gap-2 px-6 py-3 rounded-xl text-sm ${
                 activeTab === 'sign' 
                   ? 'bg-gradient-to-r from-blue-500/30 to-cyan-500/30 text-blue-400 border border-blue-500/30' 
                   : 'bg-white/5 text-white/60'
@@ -325,7 +314,7 @@ export default function Accessibility() {
         <audio ref={audioRef} className="hidden" onEnded={() => setIsPlaying(false)} />
 
         {/* Main Content */}
-        <div className="w-full">
+        <div className="w-full mb-6 sm:mb-8 mt-4">
           <AnimatePresence mode="wait">
             {/* Settings Panel */}
             {activeTab === 'settings' && (
@@ -355,68 +344,67 @@ export default function Accessibility() {
                 role="tabpanel"
                 aria-labelledby="audio-tab"
               >
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mb-6 sm:mb-8 mx-auto max-w-6xl">
                   {lessons.map((lesson) => (
-                    <GlassCard key={lesson.id} className="p-6 overflow-hidden">
-                      <div className="flex flex-col md:flex-row items-start gap-6">
-                        {/* Lesson icon and controls */}
-                        <div className="flex-shrink-0 flex flex-col items-center">
-                          <div className="w-20 h-20 rounded-full bg-gradient-to-br from-purple-500/30 to-pink-500/30 flex items-center justify-center mb-4">
-                            {lesson.icon}
-                          </div>
-                          <div className="flex flex-col items-center gap-2">
-                            <button
-                              onClick={() => toggleAudio(lesson.id)}
-                              className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50"
-                              aria-label={currentAudio === lesson.id && isPlaying ? "Pause audio" : "Play audio"}
-                              aria-pressed={currentAudio === lesson.id && isPlaying}
-                            >
-                              {currentAudio === lesson.id && isPlaying ? (
-                                <HiPause className="w-6 h-6" />
-                              ) : (
-                                <HiPlay className="w-6 h-6 ml-1" />
-                              )}
-                            </button>
-                            <button
-                              onClick={() => generateSpeech(lesson.id)}
-                              className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-                              aria-label="Generate new speech"
-                              disabled={isGenerating && generatingLessonId === lesson.id}
-                            >
-                              {isGenerating && generatingLessonId === lesson.id ? (
-                                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                              ) : (
-                                <HiRefresh className="w-5 h-5" />
-                              )}
-                            </button>
-                          </div>
+                    <GlassCard key={lesson.id} className="p-5 relative overflow-hidden backdrop-blur-md bg-black/40 border border-purple-500/30 shadow-lg">
+                      <div className="flex items-start gap-3">
+                        {/* Lesson icon */}
+                        <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                          {lesson.icon}
                         </div>
                         
                         {/* Lesson content */}
                         <div className="flex-grow">
-                          <h3 className="text-xl font-bold text-white text-left mb-2">{lesson.title}</h3>
-                          <div className="flex items-center text-white/60 text-sm mb-4">
+                          <h3 className="text-base sm:text-lg font-semibold text-white text-left mb-1">{lesson.title}</h3>
+                          <div className="flex items-center mb-2 text-white/60 text-xs sm:text-sm">
                             <span>{lesson.duration}</span>
-                            <div className="w-1 h-1 rounded-full bg-white/40 mx-2" />
+                            <div className="w-1 h-1 rounded-full bg-white/40 mx-2"></div>
                             <span>{lesson.progress}% complete</span>
                           </div>
-                          <p className="text-left text-white/80 mb-4">{lesson.description}</p>
+                          <p className="text-left text-white/70 text-xs sm:text-sm mb-3">{lesson.description}</p>
                           
                           {/* Progress bar */}
-                          <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden mb-4">
+                          <div className="h-2 w-full bg-white/10 rounded-full mb-3 overflow-hidden">
                             <div 
                               className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" 
                               style={{ width: `${lesson.progress}%` }}
                             />
                           </div>
-                          
                           {/* AI-generated content */}
                           {lesson.content && (
-                            <div className="mt-4 p-4 bg-white/5 rounded-lg">
-                              <p className="text-white/70 text-left w-128 h-50 text-sm whitespace-pre-line">{lesson.content}</p>
+                            <div className="mt-3 p-3 bg-white/5 rounded-lg">
+                              <p className="text-white/70 text-xs sm:text-sm whitespace-pre-line">{lesson.content}</p>
                             </div>
                           )}
                         </div>
+                      </div>
+                      
+                      {/* Controls */}
+                      <div className="flex justify-center gap-3 mt-3">
+                        <button
+                          onClick={() => toggleAudio(lesson.id)}
+                          className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50"
+                          aria-label={currentAudio === lesson.id && isPlaying ? "Pause audio" : "Play audio"}
+                          aria-pressed={currentAudio === lesson.id && isPlaying}
+                        >
+                          {currentAudio === lesson.id && isPlaying ? (
+                            <HiPause className="w-5 h-5" />
+                          ) : (
+                            <HiPlay className="w-5 h-5 ml-0.5" />
+                          )}
+                        </button>
+                        <button
+                          onClick={() => generateSpeech(lesson.id)}
+                          className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                          aria-label="Generate new speech"
+                          disabled={isGenerating && generatingLessonId === lesson.id}
+                        >
+                          {isGenerating && generatingLessonId === lesson.id ? (
+                            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                          ) : (
+                            <HiRefresh className="w-4 h-4" />
+                          )}
+                        </button>
                       </div>
                     </GlassCard>
                   ))}
@@ -436,51 +424,78 @@ export default function Accessibility() {
                 role="tabpanel"
                 aria-labelledby="sign-tab"
               >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto max-w-6xl">
                   {signLanguageLessons.map((lesson) => (
-                    <GlassCard key={lesson.id} className="p-6 overflow-hidden">
-                      <div className="flex flex-col gap-4">
-                        {/* Video thumbnail or player */}
-                        <div className="w-full aspect-video bg-black/40 rounded-lg overflow-hidden relative">
-                          {selectedVideo === lesson.id ? (
-                            <iframe
-                              src={`https://www.youtube.com/embed/${lesson.videoId}?autoplay=1`}
-                              title={lesson.title}
-                              className="absolute inset-0 w-full h-full"
-                              frameBorder="0"
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                              allowFullScreen
-                            />
-                          ) : (
-                            <div className="relative w-full h-full">
-                              <img
-                                src={`https://img.youtube.com/vi/${lesson.videoId}/hqdefault.jpg`}
-                                alt={lesson.title}
-                                className="w-full h-full object-cover"
-                              />
-                              <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                                <button
-                                  onClick={() => selectVideo(lesson.id)}
-                                  className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
-                                  aria-label={`Play ${lesson.title}`}
-                                >
-                                  <HiPlay className="w-8 h-8 ml-1" />
-                                </button>
-                              </div>
-                            </div>
-                          )}
+                    <GlassCard key={lesson.id} className="p-5 relative overflow-hidden backdrop-blur-md bg-black/40 border border-purple-500/30 shadow-lg">
+                      <div className="flex items-start gap-3 mb-3">
+                        {/* Lesson icon */}
+                        <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
+                          <HiTranslate className="w-6 h-6 text-white" />
                         </div>
                         
-                        {/* Video info */}
-                        <div>
-                          <h3 className="text-xl font-bold text-white mb-2">{lesson.title}</h3>
-                          <div className="flex items-center text-white/60 text-sm mb-3">
+                        {/* Lesson content */}
+                        <div className="flex-grow">
+                          <h3 className="text-base sm:text-lg font-semibold text-white text-left mb-1">{lesson.title}</h3>
+                          <div className="flex items-center mb-2 text-white/60 text-xs sm:text-sm">
                             <span>{lesson.duration}</span>
-                            <div className="w-1 h-1 rounded-full bg-white/40 mx-2" />
-                            <span>{lesson.views} views</span>
+                            {lesson.views && (
+                              <>
+                                <div className="w-1 h-1 rounded-full bg-white/40 mx-2"></div>
+                                <span>{lesson.views} views</span>
+                              </>
+                            )}
                           </div>
-                          <p className="text-white/80">{lesson.description}</p>
+                          <p className="text-white/70 text-xs sm:text-sm mb-2">{lesson.description}</p>
                         </div>
+                      </div>
+                      
+                      {/* Video thumbnail or player */}
+                      {selectedVideo === lesson.id ? (
+                        <div className="w-full aspect-video bg-black/40 rounded-lg overflow-hidden relative">
+                          <iframe
+                            src={`https://www.youtube.com/embed/${lesson.videoId}?autoplay=1`}
+                            title={lesson.title}
+                            className="absolute inset-0 w-full h-full"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                          />
+                        </div>
+                      ) : (
+                        <div className="w-full aspect-video bg-black/40 rounded-lg overflow-hidden relative cursor-pointer"
+                             onClick={() => selectVideo(lesson.id)}>
+                          <img
+                            src={`https://img.youtube.com/vi/${lesson.videoId}/hqdefault.jpg`}
+                            alt={lesson.title}
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                            <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white">
+                              <HiPlay className="w-6 h-6 ml-1" />
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                      
+                      {/* Video controls */}
+                      <div className="flex justify-start mt-3">
+                        <button
+                          onClick={() => selectVideo(lesson.id)}
+                          className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center gap-2 text-white text-sm shadow-lg hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                          aria-label={selectedVideo === lesson.id ? "Close video" : "Watch video"}
+                        >
+                          {selectedVideo === lesson.id ? (
+                            <>
+                              <HiX className="w-4 h-4" />
+                              <span>Close</span>
+                            </>
+                          ) : (
+                            <>
+                              <HiPlay className="w-4 h-4" />
+                              <span>Watch</span>
+                            </>
+                          )}
+                        </button>
                       </div>
                     </GlassCard>
                   ))}
